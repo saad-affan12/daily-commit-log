@@ -20,7 +20,7 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.name "Mohammed Saad Affan"
-          git config --global user.email "your-email@example.com"
+          git config --global user.email "saadaffan129@gmail.com"
           git add .
           git commit -m "Daily automated commit"
           git push
