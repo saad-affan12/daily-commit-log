@@ -2,8 +2,11 @@ name: Daily Auto Commit
 
 on:
   schedule:
-    - cron: "0 18 * * *"   # Runs every day
+    - cron: "0 18 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   auto_commit:
@@ -17,10 +20,10 @@ jobs:
         run: |
           echo "Update: $(date)" >> log.txt
 
-      - name: Commit changes
+      - name: Commit and Push
         run: |
           git config --global user.name "Mohammed Saad Affan"
           git config --global user.email "saadaffan129@gmail.com"
           git add .
-          git commit -m "Daily automated commit"
+          git commit -m "Daily automated commit" || echo "No changes to commit"
           git push
